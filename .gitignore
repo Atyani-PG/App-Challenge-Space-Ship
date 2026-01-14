@@ -1,0 +1,37 @@
+# ================================
+# Unity generated folders
+# ================================
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+
+# Unity build output folders
+*_Data/
+*.apk
+*.aab
+*.exe
+
+# ================================
+# Project-specific (VERY IMPORTANT)
+# ================================
+gameVersions/
+*.rar
+*.zip
+
+# ================================
+# Package cache
+# ================================
+Packages/packages-lock.json
+
+# ================================
+# OS / IDE
+# ================================
+.vs/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
