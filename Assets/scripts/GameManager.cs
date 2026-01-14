@@ -65,7 +65,13 @@ public class GameManager : MonoBehaviour
             spawnManager = FindFirstObjectByType<SpawnManager>();
         }
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            PlayGame();
+        }
+    }
     public void AddScore(int amount)
     {
         score += amount;

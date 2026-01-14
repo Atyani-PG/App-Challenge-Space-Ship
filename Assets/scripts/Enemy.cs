@@ -100,6 +100,11 @@ public class Enemy : MonoBehaviour
             if (_animator != null)
             {
                 _animator.SetTrigger("OnDestroyEnemy");
+                Destroy(this.gameObject, 2f);
+            }
+            else
+            {
+                Destroy(gameObject);
             }
             // Slow down the enemy's movement so it looks like it is destroyed
             _enemySpeed = 0.2f;
@@ -109,7 +114,7 @@ public class Enemy : MonoBehaviour
                 _collider.enabled = false;
             }
             // Finally destroy the enemy after a short delay
-            Destroy(this.gameObject, 2f);
+            
         }
     }
 

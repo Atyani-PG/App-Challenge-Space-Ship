@@ -59,21 +59,21 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            _animator.SetBool("turnRight", false);
-            _animator.SetBool("turnLeft", true);
+            if (_animator) _animator.SetBool("turnRight", false);
+            if (_animator) _animator.SetBool("turnLeft", true);
             Debug.Log("A key pressed");
         }
 
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            _animator.SetBool("turnLeft", false);
-            _animator.SetBool("turnRight", true);
+            if (_animator) _animator.SetBool("turnLeft", false);
+            if (_animator) _animator.SetBool("turnRight", true);
             Debug.Log("D key pressed");
         }
         else if (!Input.anyKey)
         {
-            _animator.SetBool("turnLeft", false);
-            _animator.SetBool("turnRight", false);
+            if(_animator) _animator.SetBool("turnLeft", false);
+            if (_animator) _animator.SetBool("turnRight", false);
         }
 
 
