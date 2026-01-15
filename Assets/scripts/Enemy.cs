@@ -10,9 +10,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _enemySpeed;    // Speed at which the enemy moves downward
-    private Animator _animator;                    // Animator for enemy destruction
+    [SerializeField] private Animator _animator;                    // Animator for enemy destruction
     private Player _player;                        // Reference to the player for damaging them
-    private Collider2D _collider;                  // Collider used for enabling/disabling collisions
+    [SerializeField] private Collider2D _collider;                  // Collider used for enabling/disabling collisions
     private GameManager _gameManager;              // Reference to the GameManager for scoring and sound
 
     private void Start()
@@ -22,31 +22,18 @@ public class Enemy : MonoBehaviour
 
         // Find the Player in the scene by type.  This assumes there is only one Player active.
         _player = FindFirstObjectByType<Player>();
-        if (_player == null)
-        {
-            Debug.LogError("Enemy: Player not found in the scene.");
-        }
 
         // Get the Animator component for playing the destruction animation
         _animator = GetComponent<Animator>();
-        if (_animator == null)
-        {
-            Debug.LogError("Enemy: Animator component is missing.");
-        }
+
 
         // Get the Collider2D component for detecting collisions
         _collider = GetComponent<Collider2D>();
-        if (_collider == null)
-        {
-            Debug.LogError("Enemy: Collider2D component is missing.");
-        }
+
 
         // Grab a reference to the GameManager for scoring and sound effects
         _gameManager = FindFirstObjectByType<GameManager>();
-        if (_gameManager == null)
-        {
-            Debug.LogError("Enemy: GameManager not found in the scene.");
-        }
+
     }
 
     private void Update()

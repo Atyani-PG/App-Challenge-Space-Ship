@@ -54,22 +54,13 @@ public class GameManager : MonoBehaviour
 
         // Get the AudioSource component attached to the same GameObject as this script
         audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            Debug.LogError("GameManager: No AudioSource component found.");
-        }
 
-        // If the SpawnManager reference wasn't set in the Inspector, try to find one in the scene
-        if (spawnManager == null)
-        {
-            spawnManager = FindFirstObjectByType<SpawnManager>();
-        }
     }
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.R))
         {
-            PlayGame();
+            Restart();
         }
     }
     public void AddScore(int amount)
@@ -79,6 +70,7 @@ public class GameManager : MonoBehaviour
         {
             scoreText.text = "Score: " + score;
         }
+        Debug.Log("your score is: "+score);
     }
     public void PlayLaser()
     {
@@ -124,6 +116,10 @@ public class GameManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void RestartGame()

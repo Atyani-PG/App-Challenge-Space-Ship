@@ -9,35 +9,24 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _laserPrefab; // Prefab for the player's laser
     [SerializeField] private GameManager _gameManager;     // Reference to the GameManager
 
-    private Animator _animator;           // Animator controlling the player animations
-    private Collider2D _collider2D;       // Collider used to detect collisions
+    [SerializeField] private Animator _animator;           // Animator controlling the player animations
+    [SerializeField] private Collider2D _collider2D;       // Collider used to detect collisions
 
-    private float _speed = 5.2f;         // Movement speed of the player
-    private float _fireAfter = 0f;        // Time until the next laser can be fired
+    [SerializeField] private float _speed = 5.2f;         // Movement speed of the player
+    [SerializeField] private float _fireAfter = 0f;        // Time until the next laser can be fired
 
     void Start()
     {
         // Place the player at the starting position near the bottom of the screen
         transform.position = new Vector3(0, -3, 0);
 
-        if (_gameManager == null)
-        {
-            Debug.LogError("Player: GameManager not found in the scene.");
-        }
+
 
         // Get the Animator component for controlling animations
         _animator = GetComponent<Animator>();
-        if (_animator == null)
-        {
-            Debug.LogError("Player: Animator component is missing.");
-        }
 
         // Get the Collider2D component for collision detection
         _collider2D = GetComponent<Collider2D>();
-        if (_collider2D == null)
-        {
-            Debug.LogError("Player: Collider2D component is missing.");
-        }
     }
     void Update()
     {
